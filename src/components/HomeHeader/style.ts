@@ -19,5 +19,9 @@ export const styles = StyleSheet.create({
         fontSize: 32,
         color: colors.black
     },
-    resumoContainer: {}
+    resumoContainer: {
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    }
 })
