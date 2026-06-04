@@ -27,18 +27,19 @@ export function Lista<T>({
 }: Props<T>) {
 
 
-     return (
+    return (
         <View style={[styles.container, containerStyle]}>
+
             <Text style={styles.titulo}>{titulo}</Text>
+            
             <FlatList
                 data={data}
                 renderItem={renderItem}
-                ItemSeparatorComponent={() =>( <Separador color={colors.gray[200]} />)}
-                ListEmptyComponent={() => (<Text style={styles.empty}>{emptyMensagem}</Text>)}
+                ItemSeparatorComponent={() => <Separador color={colors.gray[200]} />}
+                ListEmptyComponent={() => <Text style={styles.empty}>{emptyMensagem}</Text>}
                 {...rest}
-                
             />
 
         </View>
-     )
+    )
 }

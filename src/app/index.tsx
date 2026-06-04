@@ -1,10 +1,11 @@
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
 import { router } from 'expo-router'
-import {useSafeAreaInsets} from 'react-native-safe-area-context'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { HomeHeader } from '@/components/HomeHeader';
 import { Objetivo } from '@/components/Objetivo';
 import { Lista } from '@/components/Lista';
+import { Button } from '@/components/Button';
 
 const resumo = {
     total: "9.745,00",
@@ -41,7 +42,7 @@ const objetivos = [
         atual: "R$ 1.000,00"
     }
 ]
- 
+
 
 export default function Index() {
     const insets = useSafeAreaInsets()
@@ -54,11 +55,19 @@ export default function Index() {
             <Lista
                 titulo='Metas'
                 data={objetivos}
-                renderItem={({item}) => <Objetivo />
-            }
-            emptyMensagem='Nenhuma meta encontrada'
-            containerStyle={{ paddingHorizontal: 24 }}
+                renderItem={({ item }) =>
+                    <Objetivo
+                        data={item}
+                        onPress={() => router.navigate(`/em-progresso", { id: item.id}`)}
+                    />
+                }
+                emptyMensagem='Nenhuma meta encontrada'
+                containerStyle={{ paddingHorizontal: 24 }}
             />
+
+            <View style={{ padding: 24, marginBottom: 32 }}>
+                <Button titulo="Nova Meta" onPress={() => router.navigate("/objetivo")} />
+            </View>
 
         </View>
     )

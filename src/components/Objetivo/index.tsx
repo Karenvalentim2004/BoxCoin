@@ -3,17 +3,28 @@ import { MaterialIcons } from '@expo/vector-icons'
 
 import { styles } from './styles'
 
+export type ObjetivoProps = {
+    id: string;
+    nome: string;
+    porcentagem: string;
+    meta: string;
+    atual: string;
+}
 
-export function Objetivo() {
+type Props = TouchableOpacityProps & {
+    data: ObjetivoProps;
+}
+
+export function Objetivo({ data, ...rest }: Props) {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} {...rest}>
 
             <View style={styles.content}>
                 <Text style={styles.nome}>
-                    Comprar muito paes de queijo
+                    {data.nome}
                 </Text>
                 <Text style={styles.status}>
-                    25% - R$250,00 de R$1.000,00
+                    {data.porcentagem} • {data.atual} de {data.meta}
                 </Text>
             </View>
 

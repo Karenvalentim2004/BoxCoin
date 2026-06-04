@@ -19,7 +19,7 @@ type Props = {
 export function HomeHeader({ data }: Props) {
     return (
         <LinearGradient
-            colors={[colors.teal[100], colors.teal[200], colors.teal[300], colors.teal[400]]}
+            colors={[colors.teal[700], colors.teal[300]]}
             style={styles.container}
         >
             <View>
