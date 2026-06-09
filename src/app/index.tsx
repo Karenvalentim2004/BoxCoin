@@ -58,7 +58,7 @@ export default function Index() {
                 renderItem={({ item }) =>
                     <Objetivo
                         data={item}
-                        onPress={() => router.navigate(`/em-progresso", { id: item.id}`)}
+                        onPress={() => router.navigate(`/em-progresso/${item.id}`)}
                     />
                 }
                 emptyMensagem='Nenhuma meta encontrada'
